@@ -1,4 +1,4 @@
-![HybridTrack Logo](./public/hybridtrack-logo.png)
+![HybridTrack Logo](./public/hybridtrack-logo-white-bg.png)
 
 # HybridTrack
 
