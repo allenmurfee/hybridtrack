@@ -1,3 +1,5 @@
+![HybridTrack Logo](./public/hybridtrack-logo.png)
+
 # HybridTrack
 
 **HybridTrack** is a full-stack web app built with **Vite + React**, **Azure Static Web Apps**, and **Azure Functions**. It helps hybrid teams track and display where employees are working—whether remotely or in-office—based on their weekly work schedules.
