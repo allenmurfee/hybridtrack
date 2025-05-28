@@ -1,12 +1,38 @@
-# React + Vite
+# HybridTrack
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**HybridTrack** is a full-stack web app built with **Vite + React**, **Azure Static Web Apps**, and **Azure Functions**. It helps hybrid teams track and display where employees are working—whether remotely or in-office—based on their weekly work schedules.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Features
 
-## Expanding the ESLint configuration
+- React-based frontend with Tailwind CSS styling
+- Add and view employee work schedules
+- Future integration with Microsoft 365 for syncing schedules
+- Serverless API using Azure Functions
+- CI/CD via GitHub and Azure Static Web Apps
+- Dashboard to view all employee work locations at a glance
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+---
+
+## Tech Stack
+
+- **Frontend**: Vite + React, Tailwind CSS, React Router
+- **Backend**: Azure Functions (Node.js)
+- **Hosting**: Azure Static Web Apps
+- **Database**: Coming soon (Cosmos DB or Azure Table Storage)
+- **CI/CD**: GitHub Actions via Azure integration
+
+---
+
+## Planned Enhancements
+
+- Microsoft 365 calendar and user integration
+- Azure Active Directory or GitHub authentication
+- Admin dashboard with role-based acces
+- Support for uploading employee schedules via CSV or Excel
+- Dashboard widget showing who is in-office today
+
+## License
+
+This project is licensed under the MIT License. Feel free to use, fork, and improve it!
