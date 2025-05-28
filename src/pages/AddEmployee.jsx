@@ -25,7 +25,15 @@ export default function AddEmployee() {
       <h1 className="text-2xl font-bold mb-4">Add New Employee</h1>
       <form onSubmit={handleSubmit} className="space-y-4 max-w-md">
         <div>
-          <label className="block mb-1 font-semibold">Employee Name</label>
+          <label className="block mb-1 font-semibold">First Name</label>
+          <input
+            type="text"
+            className="border border-gray-300 p-2 w-full rounded mb-3"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+            required
+          />
+          <label className="block mb-1 font-semibold">Last Name</label>
           <input
             type="text"
             className="border border-gray-300 p-2 w-full rounded"
@@ -35,7 +43,7 @@ export default function AddEmployee() {
           />
         </div>
 
-        <div>
+        <div className="flex flex-col justify-center items-center">
           <label className="block mb-1 font-semibold">WFH Days</label>
           <div className="flex space-x-2">
             {daysOfWeek.map((day) => (
