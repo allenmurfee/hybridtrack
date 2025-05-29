@@ -6,7 +6,7 @@ export default function Header() {
       <div className="container mx-auto flex items-center justify-between">
         <Link to="/">
           <img
-            src="/hybridtrack-logo.png" 
+            src="/hybridtrack-logo.png"
             alt="HybridTrack Logo"
             className="w-36 h-18"
           />
