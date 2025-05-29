@@ -8,16 +8,18 @@ const key = process.env.COSMOS_KEY;
 const client = new CosmosClient({ endpoint, key });
 
 async function addData() {
-  const databaseId = "hybridtrack-db";
+  const databaseId = "hybridtrack";
   const containerId = "employees";
 
   try {
-    const database = client.database(databaseId).container(containerId);
+    const database = client.database(databaseId);
+    const container = database.container(containerId);
     console.log(`✅ Referenced database: ${database.id}`);
+    console.log(`✅ Referenced database: ${container.id}`);
 
     const dummyPeople = [
       {
-        id: "1",
+        EmployeeId: "1",
         firstName: "Alice",
         lastName: "Jones",
         wfhDays: ["Monday", "Wednesday"],
@@ -26,7 +28,7 @@ async function addData() {
         officeLocation: "Chester",
       },
       {
-        id: "2",
+        EmployeeId: "2",
         firstName: "Bob",
         lastName: "Smith",
         wfhDays: ["Tuesday", "Thursday"],
@@ -35,7 +37,7 @@ async function addData() {
         officeLocation: "Midlothian",
       },
       {
-        id: "3",
+        EmployeeId: "3",
         firstName: "Carol",
         lastName: "White",
         wfhDays: ["Monday", "Friday"],
@@ -44,7 +46,7 @@ async function addData() {
         officeLocation: "Chester",
       },
       {
-        id: "4",
+        EmployeeId: "4",
         firstName: "David",
         lastName: "Brown",
         wfhDays: ["Wednesday"],
@@ -53,7 +55,7 @@ async function addData() {
         officeLocation: "Midlothian",
       },
       {
-        id: "5",
+        EmployeeId: "5",
         firstName: "Eva",
         lastName: "Green",
         wfhDays: ["Tuesday", "Thursday"],
@@ -62,7 +64,7 @@ async function addData() {
         officeLocation: "Chester",
       },
       {
-        id: "6",
+        EmployeeId: "6",
         firstName: "Frank",
         lastName: "Black",
         wfhDays: ["Monday"],
@@ -71,7 +73,7 @@ async function addData() {
         officeLocation: "Midlothian",
       },
       {
-        id: "7",
+        EmployeeId: "7",
         firstName: "Grace",
         lastName: "Lee",
         wfhDays: ["Wednesday", "Friday"],
@@ -80,7 +82,7 @@ async function addData() {
         officeLocation: "Chester",
       },
       {
-        id: "8",
+        EmployeeId: "8",
         firstName: "Henry",
         lastName: "King",
         wfhDays: ["Tuesday"],
@@ -89,7 +91,7 @@ async function addData() {
         officeLocation: "Midlothian",
       },
       {
-        id: "9",
+        EmployeeId: "9",
         firstName: "Ivy",
         lastName: "Scott",
         wfhDays: ["Thursday", "Friday"],
@@ -98,7 +100,7 @@ async function addData() {
         officeLocation: "Chester",
       },
       {
-        id: "10",
+        EmployeeId: "10",
         firstName: "Jack",
         lastName: "Adams",
         wfhDays: ["Monday", "Tuesday"],
@@ -107,7 +109,7 @@ async function addData() {
         officeLocation: "Midlothian",
       },
       {
-        id: "11",
+        EmployeeId: "11",
         firstName: "Kate",
         lastName: "Turner",
         wfhDays: ["Wednesday"],
@@ -116,7 +118,7 @@ async function addData() {
         officeLocation: "Chester",
       },
       {
-        id: "12",
+        EmployeeId: "12",
         firstName: "Liam",
         lastName: "Parker",
         wfhDays: ["Thursday"],
@@ -125,7 +127,7 @@ async function addData() {
         officeLocation: "Midlothian",
       },
       {
-        id: "13",
+        EmployeeId: "13",
         firstName: "Mia",
         lastName: "Phillips",
         wfhDays: ["Friday"],
@@ -134,7 +136,7 @@ async function addData() {
         officeLocation: "Chester",
       },
       {
-        id: "14",
+        EmployeeId: "14",
         firstName: "Noah",
         lastName: "Campbell",
         wfhDays: ["Monday", "Thursday"],
@@ -143,7 +145,7 @@ async function addData() {
         officeLocation: "Midlothian",
       },
       {
-        id: "15",
+        EmployeeId: "15",
         firstName: "Olivia",
         lastName: "Mitchell",
         wfhDays: ["Tuesday", "Friday"],
@@ -152,7 +154,7 @@ async function addData() {
         officeLocation: "Chester",
       },
       {
-        id: "16",
+        EmployeeId: "16",
         firstName: "Paul",
         lastName: "Roberts",
         wfhDays: ["Wednesday"],
@@ -161,7 +163,7 @@ async function addData() {
         officeLocation: "Midlothian",
       },
       {
-        id: "17",
+        EmployeeId: "17",
         firstName: "Quinn",
         lastName: "Murphy",
         wfhDays: ["Thursday"],
@@ -170,7 +172,7 @@ async function addData() {
         officeLocation: "Chester",
       },
       {
-        id: "18",
+        EmployeeId: "18",
         firstName: "Rachel",
         lastName: "Evans",
         wfhDays: ["Monday", "Friday"],
@@ -179,7 +181,7 @@ async function addData() {
         officeLocation: "Midlothian",
       },
       {
-        id: "19",
+        EmployeeId: "19",
         firstName: "Steve",
         lastName: "Ward",
         wfhDays: ["Tuesday"],
@@ -188,7 +190,7 @@ async function addData() {
         officeLocation: "Chester",
       },
       {
-        id: "20",
+        EmployeeId: "20",
         firstName: "Tina",
         lastName: "Bell",
         wfhDays: ["Wednesday", "Thursday"],
@@ -200,7 +202,6 @@ async function addData() {
 
     for (const emp of dummyPeople) {
       await container.items.create(emp);
-      console.log(`📦 Added employee: ${emp.name}`);
     }
   } catch (err) {
     console.error("❌ Error accessing Cosmos DB:", err.message);
